@@ -4,10 +4,10 @@ import { Shield, CheckCircle, FileCheck, User, BadgeCheck, TrendingUp } from 'lu
 
 const HeroSection = () => {
   return (
-    <section 
+    <section
       data-testid="hero-section"
-      className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden"
-    >
+      className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient blobs */}
@@ -25,10 +25,10 @@ const HeroSection = () => {
               <span className="font-body text-sm text-[#0009B3] font-medium">The Trust Layer for Renting</span>
             </div>
             
-            <h1 
+            <h1
               data-testid="hero-headline"
-              className="font-heading font-semibold text-4xl sm:text-5xl lg:text-6xl text-[#000000] tracking-tight leading-[1.1] mb-6"
-            >
+              className="font-heading font-semibold text-4xl sm:text-5xl lg:text-6xl text-[#000000] tracking-tight leading-[1.1] mb-6">
+
               Build trust before the{' '}
               <span className="gradient-text">rental decision</span>
             </h1>
@@ -38,18 +38,18 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <Button 
+              <Button
                 data-testid="hero-cta-primary"
-                className="btn-primary bg-[#0009B3] text-white hover:bg-[#0009B3]/90 hover:shadow-xl transition-all rounded-full px-8 py-6 font-heading font-medium text-base"
-              >
+                className="btn-primary bg-[#0009B3] text-white hover:bg-[#0009B3]/90 hover:shadow-xl transition-all rounded-full px-8 py-6 font-heading font-medium text-base">
+
                 Get Early Access
               </Button>
-              <Button 
+              <Button
                 data-testid="hero-cta-secondary"
                 variant="outline"
                 className="btn-secondary bg-white text-[#0009B3] border-2 border-gray-200 hover:border-[#0009B3] hover:bg-gray-50 transition-all rounded-full px-8 py-6 font-heading font-medium text-base"
-                onClick={() => window.location.href = '/'}
-              >
+                onClick={() => window.location.href = '/'}>
+
                 See How It Works
               </Button>
             </div>
@@ -58,7 +58,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap items-center gap-4">
               <div className="flex items-center gap-2 text-sm text-[#475569]">
                 <CheckCircle className="w-4 h-4 text-[#0BFFC9]" />
-                <span className="font-body">Equifax Partner</span>
+                <span className="font-body !font-['Comic_Sans_MS']">Equifax </span>
               </div>
               <div className="flex items-center gap-2 text-sm text-[#475569]">
                 <CheckCircle className="w-4 h-4 text-[#0BFFC9]" />
@@ -72,10 +72,10 @@ const HeroSection = () => {
           </div>
 
           {/* Right Content - HTML Mockup */}
-          <div 
+          <div
             data-testid="hero-mockup-container"
-            className="relative lg:pl-8"
-          >
+            className="relative lg:pl-8">
+
             <div className="mockup-glow"></div>
             
             {/* Laptop Frame */}
@@ -110,7 +110,7 @@ const HeroSection = () => {
                 {/* Stats Grid */}
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   <div className="bg-gradient-to-br from-[#0009B3]/5 to-[#0BFFC9]/5 rounded-xl p-4">
-                    <p className="font-body text-xs text-[#475569] mb-1">Trust Score</p>
+                    <p className="font-body !text-sm mb-1 text-[#475569]">Score</p>
                     <p className="font-heading font-semibold text-xl text-[#0009B3]">92</p>
                     <div className="w-full h-1.5 bg-gray-200 rounded-full mt-2">
                       <div className="w-[92%] h-full gradient-brand rounded-full"></div>
@@ -127,7 +127,7 @@ const HeroSection = () => {
                   <div className="bg-gray-50 rounded-xl p-4">
                     <p className="font-body text-xs text-[#475569] mb-1">Credit Impact</p>
                     <p className="font-heading font-semibold text-xl text-[#000000]">+45</p>
-                    <p className="font-body text-xs text-[#0BFFC9] mt-2">pts gained</p>
+                    <p className="font-body text-xs mt-2 !text-[#0B60FF]">pts gained</p>
                   </div>
                 </div>
 
@@ -136,18 +136,18 @@ const HeroSection = () => {
                   <p className="font-heading font-medium text-sm text-[#000000] mb-3">Verified Documents</p>
                   <div className="space-y-2">
                     {[
-                      { name: 'Identity Verified', icon: FileCheck },
-                      { name: 'Income Verified', icon: FileCheck },
-                      { name: 'References Checked', icon: FileCheck },
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-center gap-3">
+                    { name: 'Identity Verified', icon: FileCheck },
+                    { name: 'Income Verified', icon: FileCheck },
+                    { name: 'References Checked', icon: FileCheck }].
+                    map((item, index) =>
+                    <div key={index} className="flex items-center gap-3">
                         <div className="w-6 h-6 rounded-full bg-[#0BFFC9]/20 flex items-center justify-center">
                           <item.icon className="w-3 h-3 text-[#0009B3]" />
                         </div>
                         <span className="font-body text-sm text-[#475569]">{item.name}</span>
                         <CheckCircle className="w-4 h-4 text-[#0BFFC9] ml-auto" />
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
@@ -168,8 +168,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
