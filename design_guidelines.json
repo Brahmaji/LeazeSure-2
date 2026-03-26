@@ -1,0 +1,137 @@
+{
+  "project_name": "LeazeSure Landing Page",
+  "theme": "Light Theme with Soft High-Contrast Gradients",
+  "archetype": "Modern SaaS (Archetype 3 Soft/Tactile + Archetype 4 Clarity)",
+  "emotional_tone": "Trustworthy, clean, futuristic, calm, high-end",
+  "fonts": {
+    "heading": {
+      "family": "'Poppins', sans-serif",
+      "weight": "font-medium",
+      "tracking": "tracking-tight",
+      "usage": "Use for all H1, H2, H3, and button text."
+    },
+    "body": {
+      "family": "'Archivo Narrow', sans-serif",
+      "weight": "font-normal",
+      "tracking": "tracking-normal",
+      "usage": "Use for all paragraphs, subtitles, and small text."
+    },
+    "imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@400;500;600&display=swap');"
+    ]
+  },
+  "colors": {
+    "primary_cyan": "#0BFFC9",
+    "primary_blue": "#0009B3",
+    "white": "#FFFFFF",
+    "black": "#000000",
+    "background_base": "#FAFAFA",
+    "text_primary": "#000000",
+    "text_secondary": "#475569",
+    "border_light": "rgba(0, 0, 0, 0.05)",
+    "glass_bg": "rgba(255, 255, 255, 0.7)",
+    "gradient_brand": "linear-gradient(135deg, #0009B3 0%, #0BFFC9 100%)",
+    "gradient_glow": "linear-gradient(135deg, rgba(0,9,179,0.2) 0%, rgba(11,255,201,0.2) 100%)"
+  },
+  "layout_and_spacing": {
+    "section_padding": "py-24 md:py-32",
+    "container_width": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "border_radius": {
+      "card": "rounded-3xl",
+      "button": "rounded-full",
+      "badge": "rounded-full",
+      "mockup": "rounded-2xl"
+    },
+    "shadows": {
+      "soft": "shadow-[0_8px_30px_rgb(0,0,0,0.04)]",
+      "glow": "shadow-[0_0_40px_-10px_rgba(11,255,201,0.3)]",
+      "glass": "shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]"
+    }
+  },
+  "component_guidelines": {
+    "buttons": {
+      "primary": "bg-[#0009B3] text-white hover:bg-opacity-90 hover:shadow-lg transition-all rounded-full px-8 py-4 font-medium",
+      "secondary": "bg-white text-[#0009B3] border border-gray-200 hover:border-[#0009B3] hover:bg-gray-50 transition-all rounded-full px-8 py-4 font-medium",
+      "accent": "bg-gradient-to-r from-[#0009B3] to-[#0BFFC9] text-white hover:opacity-90 transition-all rounded-full px-8 py-4 font-medium"
+    },
+    "cards": {
+      "base": "bg-white border border-gray-100 rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden",
+      "glass": "bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-3xl"
+    },
+    "mockups_html": {
+      "instruction": "CRITICAL: Do not use external image URLs for the UI mockups. You MUST build illustrative UI mockups (Rental Passport, Rent Reporting, Landlord Dashboard) using pure HTML and Tailwind CSS. Use clean geometric shapes, nested divs with soft shadows, dummy user avatars, data bars, and minimalist icons to simulate a premium SaaS product interface directly in code. This ensures perfect resolution and allows for subtle CSS animations.",
+      "style": "Use rounded corners (rounded-2xl), clean white backgrounds, and soft accent colors (bg-blue-50, text-[#0009B3]) within the mockups."
+    }
+  },
+  "page_sections": [
+    {
+      "name": "Navigation",
+      "description": "Sticky top nav. Glassmorphism bg-white/70 backdrop-blur-xl. Logo on left. Navigation links in center. 'Get Early Access' button on right.",
+      "test_ids": ["nav-logo", "nav-links", "nav-cta-button"]
+    },
+    {
+      "name": "Hero Section",
+      "description": "Generous white space. Headline: 'The Trust Layer for Renting'. Subheadline explaining the value for tenants and landlords. 2 CTAs: 'Get Early Access' (Primary) and 'See How It Works' (Secondary). Right side or bottom: An HTML-based illustrative mockup of the Rental Passport floating over a soft cyan/blue blurred glowing blob (bg-gradient-to-r from-[#0009B3]/20 to-[#0BFFC9]/20 blur-3xl).",
+      "test_ids": ["hero-headline", "hero-cta-primary", "hero-cta-secondary", "hero-mockup-container"]
+    },
+    {
+      "name": "Problem / Solution",
+      "description": "Two column or grid layout. Highlighting rental pain points for Tenants (credit building, repetitive applications) and Landlords (slow pre-screening, risk). Use clean, minimalist icons (lucide-react).",
+      "test_ids": ["problem-tenant-card", "problem-landlord-card"]
+    },
+    {
+      "name": "Rental Passport Feature",
+      "description": "Horizontal layout card (bg-white rounded-3xl). Left: Text explaining reusable passport. Right: HTML UI mockup of a verified user profile with trust badges.",
+      "test_ids": ["feature-passport-text", "feature-passport-mockup"]
+    },
+    {
+      "name": "Rent Reporting Feature",
+      "description": "Main horizontal card + 3 smaller supporting cards below. Main card shows text + HTML UI mockup of a credit score increasing (Equifax reporting). Supporting cards detail benefits: 'Newcomers', 'Rebuilding credit', 'Good credit'.",
+      "test_ids": ["feature-reporting-main", "reporting-card-newcomer", "reporting-card-rebuilding", "reporting-card-good"]
+    },
+    {
+      "name": "Landlord Dashboard Feature",
+      "description": "Horizontal layout card. Left: HTML UI mockup of a landlord dashboard (lists of applicants, status badges, analytics). Right: Text explaining fast pre-screening and management.",
+      "test_ids": ["feature-dashboard-mockup", "feature-dashboard-text"]
+    },
+    {
+      "name": "Pricing",
+      "description": "3 tier columns: 'Tenant Free', 'Tenant Premium', 'Landlord Plan'. Premium/Landlord plan highlighted with gradient borders or soft glowing drop shadow. Clearly list features with checkmarks.",
+      "test_ids": ["pricing-tier-free", "pricing-tier-premium", "pricing-tier-landlord"]
+    },
+    {
+      "name": "Final CTA",
+      "description": "A wide rounded-3xl container with a soft brand gradient background (from-[#0009B3] to-[#0BFFC9]). White text. Large bold headline, subtext, and 'Get Early Access' button (white button with blue text).",
+      "test_ids": ["final-cta-container", "final-cta-button"]
+    },
+    {
+      "name": "Footer",
+      "description": "Minimalist footer. Logo, copyright, simple links.",
+      "test_ids": ["footer-logo", "footer-links"]
+    }
+  ],
+  "media": {
+    "images": [
+      {
+        "category": "abstract_background_texture",
+        "url": "https://images.unsplash.com/photo-1707209856577-eeea3627f8bf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHw0fHxnbGFzc21vcnBoaXNtfGVufDB8fHx8MTc3NDUwNDI1Nnww&ixlib=rb-4.1.0&q=85",
+        "description": "A blurry blue/green background, can be used at very low opacity for background texture if needed."
+      },
+      {
+        "category": "dashboard_abstract",
+        "url": "https://images.unsplash.com/photo-1691725909676-105654d24649?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzc0NTA0MjQ3fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract black surface, use as fallback if HTML mockup fails."
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Strictly follow the color palette: Deep Blue (#0009B3) and Bright Cyan (#0BFFC9) with White and Black.",
+    "Do NOT use external generic stock images for the product features. You MUST build 'Illustrative UI Mockups' using purely HTML and Tailwind CSS inside the feature cards. This involves creating fake dashboards, profile cards, and credit score gauges using divs, rounded corners, soft shadows, borders, and flexbox.",
+    "Use Lucide-react for all iconography.",
+    "Ensure 'Poppins' font is applied to headers (h1-h6) and 'Archivo Narrow' to body paragraphs. Verify font imports are present in the CSS.",
+    "Implement 'Glassmorphism-lite' on the top nav and feature mockups using `backdrop-blur-xl` and white/70 backgrounds.",
+    "Buttons should be styled elegantly, primarily rounded-full. CTAs are buttons only, no links acting as primary CTAs.",
+    "Ensure generous padding (`py-24` or `py-32`) between sections to maintain the airy, high-end Canva-style aesthetic.",
+    "Add `data-testid` attributes to all interactive and structural key elements as defined in the page_sections."
+  ]
+}
