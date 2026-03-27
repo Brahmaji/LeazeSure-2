@@ -258,14 +258,7 @@ function PersonaPicker({ personas, value, onChange, ariaLabel, idPrefix, panelId
                 <span className="lg:hidden">{p.shortLabel}</span>
                 <span className="hidden lg:inline">{p.label}</span>
               </span>
-              <span
-                className={cn(
-                  'font-body mt-0.5 hidden text-[11px] leading-snug lg:block lg:text-[11px]',
-                  selected ? 'text-white/85' : 'text-[#64748b]',
-                )}
-              >
-                {p.description}
-              </span>
+              <span className="sr-only">{p.description}</span>
             </span>
           </button>
         );
