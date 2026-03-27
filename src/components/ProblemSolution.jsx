@@ -197,7 +197,9 @@ function PersonaPicker({ personas, value, onChange, ariaLabel, idPrefix, panelId
       role="tablist"
       aria-label={ariaLabel}
       className={cn(
-        'grid grid-cols-3 gap-1.5 rounded-2xl border p-1.5 shadow-sm sm:gap-2 lg:flex lg:flex-row lg:gap-1',
+        'grid grid-cols-3 gap-1.5 rounded-2xl border p-1.5 shadow-sm sm:gap-2',
+        /* Desktop: stacked tabs — avoids cramming 3 rich tabs into half the viewport */
+        'lg:grid lg:grid-cols-1 lg:gap-2 lg:p-2',
         isLandlord
           ? 'border-stone-300/80 bg-stone-100/65'
           : 'border-gray-200/90 bg-white/90',
@@ -218,7 +220,7 @@ function PersonaPicker({ personas, value, onChange, ariaLabel, idPrefix, panelId
             onClick={() => onChange(p.id)}
             className={cn(
               'flex min-h-[3.25rem] flex-1 flex-col items-center justify-center gap-1 rounded-xl px-1.5 py-2.5 text-center transition-all duration-200',
-              'lg:min-h-0 lg:flex-row lg:items-center lg:gap-2.5 lg:px-3 lg:py-2.5 lg:text-left',
+              'lg:min-h-0 lg:w-full lg:flex-row lg:items-start lg:justify-start lg:gap-3 lg:px-4 lg:py-3.5 lg:text-left',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.98]',
               isLandlord
                 ? 'focus-visible:ring-slate-700'
@@ -253,14 +255,14 @@ function PersonaPicker({ personas, value, onChange, ariaLabel, idPrefix, panelId
                 )}
               />
             </span>
-            <span className="min-w-0 px-0.5 lg:px-0">
-              <span className="font-heading block text-[11px] font-semibold leading-tight sm:text-xs lg:text-sm">
+            <span className="min-w-0 flex-1 px-0.5 lg:px-0">
+              <span className="font-heading block text-[11px] font-semibold leading-tight sm:text-xs lg:text-[0.9375rem]">
                 <span className="lg:hidden">{p.shortLabel}</span>
                 <span className="hidden lg:inline">{p.label}</span>
               </span>
               <span
                 className={cn(
-                  'font-body mt-0.5 hidden text-[11px] leading-snug lg:block lg:text-[11px]',
+                  'font-body mt-0.5 hidden text-[11px] leading-snug lg:mt-1 lg:block lg:text-xs lg:leading-relaxed',
                   selected ? 'text-white/85' : 'text-[#64748b]',
                 )}
               >
@@ -274,7 +276,7 @@ function PersonaPicker({ personas, value, onChange, ariaLabel, idPrefix, panelId
   );
 }
 
-function PersonaPanel({ persona, panelId, labelledBy, variant = 'tenant' }) {
+function PersonaPanel({ persona, panelId, labelledBy, variant = 'tenant', className }) {
   if (!persona) return null;
   const iconClass = variant === 'landlord' ? 'text-amber-900/80' : 'text-[#0009B3]';
   const isLandlord = variant === 'landlord';
@@ -283,7 +285,7 @@ function PersonaPanel({ persona, panelId, labelledBy, variant = 'tenant' }) {
       role="tabpanel"
       id={panelId}
       aria-labelledby={labelledBy}
-      className="mt-4 sm:mt-6"
+      className={cn('mt-4 sm:mt-6 lg:mt-0 lg:flex lg:h-full lg:flex-col', className)}
     >
       <p
         id={`${panelId}-hint`}
@@ -293,7 +295,7 @@ function PersonaPanel({ persona, panelId, labelledBy, variant = 'tenant' }) {
       </p>
       <div
         className={cn(
-          'rounded-2xl p-4 sm:p-5 lg:p-6',
+          'rounded-2xl p-4 sm:p-5 lg:min-h-[280px] lg:flex-1 lg:p-6',
           isLandlord
             ? cn(
                 'border-y border-r border-stone-200/90 bg-stone-50/95 shadow-sm ring-1 ring-stone-900/[0.06]',
@@ -305,9 +307,9 @@ function PersonaPanel({ persona, panelId, labelledBy, variant = 'tenant' }) {
               ),
         )}
       >
-        <ul className="space-y-4 sm:space-y-5">
+        <ul className="space-y-4 sm:space-y-5 lg:space-y-4">
           {persona.items.map((item, index) => (
-            <li key={index} className="flex gap-3 sm:gap-4">
+            <li key={index} className="flex gap-3 sm:gap-4 lg:gap-4">
               <div
                 className={cn(
                   'flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm sm:h-10 sm:w-10',
@@ -348,21 +350,21 @@ const ProblemSolution = () => {
       <div className="absolute inset-0 bg-[radial-gradient(#0009B3_0.5px,transparent_0.5px)] [background-size:24px_24px] opacity-[0.02]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center sm:mb-14 md:mb-16">
+        <div className="mb-10 text-center sm:mb-14 md:mb-16 lg:mb-20">
           <div className="mb-4 inline-flex max-w-[calc(100vw-1.5rem)] items-center gap-2 rounded-full border border-red-100 bg-red-50 px-3 py-1.5 sm:mb-6 sm:px-4 sm:py-2">
             <AlertTriangle className="h-3.5 w-3.5 shrink-0 text-red-500 sm:h-4 sm:w-4" />
             <span className="font-body text-xs font-medium text-red-600 sm:text-sm">The renting problem</span>
           </div>
-          <h2 className="font-heading mb-3 text-[1.625rem] font-semibold leading-tight tracking-tight text-[#000000] sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="font-heading mx-auto mb-3 max-w-4xl text-[1.625rem] font-semibold leading-[1.15] tracking-tight text-[#000000] sm:mb-4 sm:text-3xl sm:leading-tight md:text-4xl lg:mb-5 lg:text-5xl lg:leading-[1.1]">
             Renting today is broken
           </h2>
-          <p className="font-body mx-auto max-w-2xl px-1 text-base text-[#475569] sm:text-lg">
+          <p className="font-body mx-auto max-w-2xl px-1 text-base leading-relaxed text-[#475569] sm:max-w-3xl sm:text-lg lg:text-xl lg:leading-relaxed">
             Different journeys, same friction. Pick your path—then see how LeazeSure removes the
             bottlenecks for both sides.
           </p>
         </div>
 
-        <div className="mb-14 grid grid-cols-1 gap-6 sm:mb-16 sm:gap-8 md:mb-20 lg:grid-cols-2 lg:gap-12">
+        <div className="mb-14 grid grid-cols-1 gap-6 sm:mb-16 sm:gap-8 md:mb-20 lg:grid-cols-2 lg:gap-10 xl:gap-14">
           <div
             id="tenants"
             data-testid="problem-tenant-card"
@@ -380,22 +382,27 @@ const ProblemSolution = () => {
               </div>
             </div>
 
-            <PersonaPicker
-              idPrefix="tenant-personas"
-              panelId="tenant-personas-panel"
-              personas={tenantPersonas}
-              value={tenantId}
-              onChange={setTenantId}
-              ariaLabel="Tenant journey"
-              variant="tenant"
-            />
-
-            <PersonaPanel
-              persona={tenant}
-              panelId="tenant-personas-panel"
-              labelledBy={`tenant-personas-tab-${tenantId}`}
-              variant="tenant"
-            />
+            <div className="lg:grid lg:grid-cols-12 lg:items-stretch lg:gap-6 xl:gap-8">
+              <div className="lg:col-span-5 xl:col-span-4">
+                <PersonaPicker
+                  idPrefix="tenant-personas"
+                  panelId="tenant-personas-panel"
+                  personas={tenantPersonas}
+                  value={tenantId}
+                  onChange={setTenantId}
+                  ariaLabel="Tenant journey"
+                  variant="tenant"
+                />
+              </div>
+              <div className="lg:col-span-7 xl:col-span-8">
+                <PersonaPanel
+                  persona={tenant}
+                  panelId="tenant-personas-panel"
+                  labelledBy={`tenant-personas-tab-${tenantId}`}
+                  variant="tenant"
+                />
+              </div>
+            </div>
           </div>
 
           <div
@@ -415,22 +422,27 @@ const ProblemSolution = () => {
               </div>
             </div>
 
-            <PersonaPicker
-              idPrefix="landlord-personas"
-              panelId="landlord-personas-panel"
-              personas={landlordPersonas}
-              value={landlordId}
-              onChange={setLandlordId}
-              ariaLabel="Landlord segment"
-              variant="landlord"
-            />
-
-            <PersonaPanel
-              persona={landlord}
-              panelId="landlord-personas-panel"
-              labelledBy={`landlord-personas-tab-${landlordId}`}
-              variant="landlord"
-            />
+            <div className="lg:grid lg:grid-cols-12 lg:items-stretch lg:gap-6 xl:gap-8">
+              <div className="lg:col-span-5 xl:col-span-4">
+                <PersonaPicker
+                  idPrefix="landlord-personas"
+                  panelId="landlord-personas-panel"
+                  personas={landlordPersonas}
+                  value={landlordId}
+                  onChange={setLandlordId}
+                  ariaLabel="Landlord segment"
+                  variant="landlord"
+                />
+              </div>
+              <div className="lg:col-span-7 xl:col-span-8">
+                <PersonaPanel
+                  persona={landlord}
+                  panelId="landlord-personas-panel"
+                  labelledBy={`landlord-personas-tab-${landlordId}`}
+                  variant="landlord"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
